@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 echo "Будет установлен Vless с транспортом XHTTP"
 sleep 3
 apt update
