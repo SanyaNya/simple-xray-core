@@ -7,7 +7,7 @@ sleep 3
 apt update
 apt upgrade -y
 apt autoremove -y
-apt install qrencode curl jq -y
+apt install qrencode curl ufw fail2ban jq -y
 
 # Включаем bbr
 bbr=$(sysctl -a | grep net.ipv4.tcp_congestion_control)
@@ -19,6 +19,13 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p
 echo "bbr включен"
 fi
+
+# Firewall
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+ufw allow https
+ufw enable
 
 # Устанавливаем ядро Xray
 bash -c "$(curl -4 -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
