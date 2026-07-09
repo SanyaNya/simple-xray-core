@@ -5,6 +5,8 @@ set -e
 echo "Будет установлен Vless с транспортом XHTTP"
 sleep 3
 apt update
+apt upgrade -y
+apt autoremove -y
 apt install qrencode curl jq -y
 
 # Включаем bbr
