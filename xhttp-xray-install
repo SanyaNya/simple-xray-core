@@ -85,7 +85,8 @@ cat << EOF > /usr/local/etc/xray/config.json
             "streamSettings": {
                 "network": "xhttp",
                 "xhttpSettings": {
-                    "path": "/"
+                    "path": "/",
+                    "mode": "stream-up"
                 },
                 "security": "reality",
                 "realitySettings": {
